@@ -1,5 +1,7 @@
 {
   "name": "purescript-uint",
+  "homepage": "https://github.com/zaquest/purescript-uint",
+  "description": "32-bit unsigned integers for PureScript",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,5 +16,9 @@
   "devDependencies": {
     "purescript-psci-support": "^1.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaquest/purescript-uint.git"
+  }
 }
