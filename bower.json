@@ -13,5 +13,6 @@
   },
   "devDependencies": {
     "purescript-psci-support": "^1.0.0"
-  }
+  },
+  "license": "MIT"
 }
