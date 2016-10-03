@@ -1,7 +1,7 @@
 -- | This module provides 32-bit unsigned integers. Provided type `UInt`
 -- | is based on the `x >>> 0` trick analogous to how PureScript's `Int`
 -- | is based on `x | 0` trick.
--- | The type has range from 0 to 4294967295.
+-- | The type has range from `0` to `4294967295`.
 module Data.UInt
      ( UInt
      , fromInt
@@ -37,14 +37,46 @@ foreign import data UInt :: *
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
 foreign import from :: forall a. a -> UInt
 
+-- | Cast an `Int` to an `UInt` turning negative `Int`s into `UInt`s
+-- | in range from `2^31` to `2^32-1`.
+-- |
+-- |     > fromInt 123
+-- |     123u
+-- |
+-- |     > fromInt (-123)
+-- |     4294967173u
 fromInt :: Int -> UInt
 fromInt = from
 
+-- | Converts positive `Int`s into `UInt`. Returns `Nothing` for
+-- | negative `Int`s
+-- |
+-- |     > fromInt' 123
+-- |     (Just 123u)
+-- |
+-- |     > fromInt' (-123)
+-- |     Nothing
 fromInt' :: Int -> Maybe UInt
 fromInt' = exact Just Nothing fromInt
 
+-- | Cast an `UInt` to an `Int` turning `UInt`s in range from `2^31`
+-- | to `2^32-1` into negative `Int`s.
+-- |
+-- |     > toInt (fromInt 123)
+-- |     123
+-- |
+-- |     > toInt (fromInt (-1))
+-- |     -1
 foreign import toInt :: UInt -> Int
 
+-- | Converts `UInt`s in range from `0` to `2^31-1` into `Int`s. Rreturns
+-- | `Nothing` for `UInt`'s in range from `2^31` to `2^32-1`.
+-- |
+-- |     > toInt' (fromInt 123)
+-- |     (Just 123)
+-- |
+-- |     > toInt' (fromInt (-1))
+-- |     Nothing
 toInt' :: UInt -> Maybe Int
 toInt' = exact Just Nothing toInt
 
@@ -85,6 +117,7 @@ instance uintOrd :: Ord UInt where
 
 foreign import fromStringImpl :: String -> Number
 
+-- | Tries to parse an `UInt` from a `String`.
 fromString :: String -> Maybe UInt
 fromString = fromNumber' <<< fromStringImpl
 
@@ -104,30 +137,107 @@ instance uintBounded :: Bounded UInt where
   bottom = fromInt 0
   top = fromInt (-1)
 
+-- | Cast a `Number` `n` to `UInt` by performing 0-bit unsigned right
+-- | shift `n >>> 0`.
 fromNumber :: Number -> UInt
 fromNumber = from
 
+-- | Convert a `Number` which is already an `UInt` to `UInt`. Fails
+-- | for non-integers and integers not in range from `0` to `2^32-1`.
 fromNumber' :: Number -> Maybe UInt
 fromNumber' = exact Just Nothing fromNumber
 
+-- | Cast an `UInt` to a `Number`, which is always safe to do.
 foreign import toNumber :: UInt -> Number
 
 clamp' :: Number -> Number
 clamp' = clamp (toNumber bottom) (toNumber top)
 
+-- | Convert a `Number` to an `UInt`. Takes the closest integer equal to or
+-- | less than the argument. Values outside the `UInt` range are clamped.
+-- |
+-- |     > floor 27.1
+-- |     27u
+-- |
+-- |     > floor 27.9
+-- |     27u
+-- |
+-- |     > floor (-27.1)
+-- |     0u
+-- |
+-- |     > floor (1.0e65)
+-- |     4294967295u
+-- |
+-- |     > floor (-1.0e65)
+-- |     0u
 floor :: Number -> UInt
 floor = fromNumber <<< Math.floor <<< clamp'
 
+-- | Convert a `Number` to an `UInt`. Takes the closest integer equal to or
+-- | greater than the argument. Values outside the `UInt` range are clamped.
+-- |
+-- |     > ceil 27.1
+-- |     28u
+-- |
+-- |     > ceil 27.9
+-- |     28u
+-- |
+-- |     > ceil (-27.1)
+-- |     0u
+-- |
+-- |     > ceil (1.0e65)
+-- |     4294967295u
+-- |
+-- |     > ceil (-1.0e65)
+-- |     0u
 ceil :: Number -> UInt
 ceil = fromNumber <<< Math.ceil <<< clamp'
 
+-- | Convert a `Number` to an `UInt`, by taking the nearest integer to the
+-- | argument. Values outside the `UInt` range are clamped.
+-- |
+-- |     > round 27.1
+-- |     27u
+-- |
+-- |     > round 27.9
+-- |     28u
+-- |
+-- |     > round (-27.1)
+-- |     0u
+-- |
+-- |     > round (-27.9)
+-- |     0u
+-- |
+-- |     > round (1.0e65)
+-- |     4294967295u
+-- |
+-- |     > round (-1.0e65)
+-- |     0u
 round :: Number -> UInt
 round = fromNumber <<< Math.round <<< clamp'
 
+-- | Returns whether an `Int53` is an even number.
+-- |
+-- |     > even (fromInt 0)
+-- |     true
+-- |
+-- |     > even (fromInt 1)
+-- |     false
 even :: UInt -> Boolean
 even u = u `mod` (fromInt 2) == (fromInt 0)
 
+-- | Returns whether an `Int53` is an odd number.
+-- |
+-- |     > odd (fromInt 0)
+-- |     false
+-- |
+-- |     > odd (fromInt 1)
+-- |     true
 odd :: UInt -> Boolean
 odd u = u `mod` (fromInt 2) == (fromInt 1)
 
+-- | Raises the first argument to the power of the second argument (the exponent).
+-- |
+-- |     > pow (fromInt 2) (fromInt 3)
+-- |     8u
 foreign import pow :: UInt -> UInt -> UInt

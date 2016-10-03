@@ -80,7 +80,13 @@ exports.uintCmp = function (lt) {
     };
 };
 
-exports.fromStringImpl = parseInt;
+exports.fromStringImpl = function (s) {
+    var n = Number(s);
+    if (n === parseInt(s)) {
+        return n;
+    }
+    return NaN;
+};
 
 exports.toString = function (x) {
     return x.toString();
