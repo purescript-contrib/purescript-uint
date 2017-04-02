@@ -9,11 +9,11 @@
     "output"
   ],
   "dependencies": {
-    "purescript-maybe": "^2.0.1",
+    "purescript-maybe": "^3.0.0",
     "purescript-math": "^2.0.0"
   },
   "devDependencies": {
-    "purescript-psci-support": "^2.0.0"
+    "purescript-psci-support": "^3.0.0"
   },
   "license": "MIT",
   "repository": {
