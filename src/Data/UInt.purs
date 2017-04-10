@@ -32,7 +32,7 @@ import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Math as Math
 
-foreign import data UInt :: *
+foreign import data UInt :: Type
 
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
 foreign import from :: forall a. a -> UInt
