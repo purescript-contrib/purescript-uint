@@ -15,6 +15,13 @@ module Data.UInt
      , ceil
      , round
      , pow
+     , and, (.&.)
+     , or, (.|.)
+     , xor, (.^.)
+     , shl
+     , shr
+     , zshr
+     , complement
      , toString
      , fromString
      ) where
@@ -241,3 +248,51 @@ odd u = u `mod` (fromInt 2) == (fromInt 1)
 -- |     > pow (fromInt 2) (fromInt 3)
 -- |     8u
 foreign import pow :: UInt -> UInt -> UInt
+
+-- | Bitwise AND.
+-- |
+-- | > and (fromInt 6) (fromInt 4)
+-- | 4u
+foreign import and :: UInt -> UInt -> UInt
+
+infixl 10 and as .&.
+
+-- | Bitwise OR.
+-- |
+-- | > or (fromInt 4) (fromInt 2)
+-- | 6u
+foreign import or :: UInt -> UInt -> UInt
+
+infixl 10 or as .|.
+
+-- | Bitwise XOR.
+-- |
+-- | > xor (fromInt 6) (fromInt 4)
+-- | 0u
+foreign import xor :: UInt -> UInt -> UInt
+
+infixl 10 xor as .^.
+
+-- | Bitwise shift left.
+-- |
+-- | > shl (fromInt 4) (fromInt 1)
+-- | 8u
+foreign import shl :: UInt -> UInt -> UInt
+
+-- | Bitwise shift right while preserving sign.
+-- |
+-- | > shr (fromInt 4) (fromInt 1)
+-- | 2u
+foreign import shr :: UInt -> UInt -> UInt
+
+-- | Bitwise zero-fill shift right.
+-- |
+-- | > shr (fromInt 4) (fromInt 1)
+-- | 2u
+foreign import zshr :: UInt -> UInt -> UInt
+
+-- | Bitwise NOT.
+-- |
+-- | > complement (fromInt 0xFF...)
+-- | 0u
+foreign import complement :: UInt -> UInt
