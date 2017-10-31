@@ -107,7 +107,7 @@ foreign import uintDiv :: UInt -> UInt -> UInt
 foreign import uintMod :: UInt -> UInt -> UInt
 foreign import uintDegree :: UInt -> Int
 
-instance uintEulideanRing :: EuclideanRing UInt where
+instance uintEuclideanRing :: EuclideanRing UInt where
   div = uintDiv
   mod = uintMod
   degree = uintDegree
