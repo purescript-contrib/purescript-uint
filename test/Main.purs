@@ -2,10 +2,7 @@ module Test.Main where
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE)
-import Control.Monad.Eff.Exception (EXCEPTION)
-import Control.Monad.Eff.Random (RANDOM)
+import Effect (Effect)
 import Data.UInt (UInt, fromNumber)
 import Test.QuickCheck.Arbitrary (class Arbitrary, arbitrary)
 import Test.QuickCheck.Laws.Data as Data
@@ -24,7 +21,7 @@ derive newtype instance commutativeRingTestUInt :: CommutativeRing TestUInt
 derive newtype instance euclideanRingTestUInt :: EuclideanRing TestUInt
 
 
-main :: forall e. Eff (exception :: EXCEPTION, random :: RANDOM, console :: CONSOLE | e) Unit
+main :: Effect Unit
 main = do
   let prxUInt = Proxy ∷ Proxy TestUInt
   Data.checkEq prxUInt

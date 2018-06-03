@@ -9,12 +9,12 @@
     "output"
   ],
   "dependencies": {
-    "purescript-maybe": "^3.0.0",
-    "purescript-math": "^2.0.0"
+    "purescript-maybe": "^4.0.0",
+    "purescript-math": "^2.1.1"
   },
   "devDependencies": {
-    "purescript-quickcheck-laws": "^3.0.0",
-    "purescript-psci-support": "^3.0.0"
+    "purescript-quickcheck-laws": "paulyoung/purescript-quickcheck-laws#compiler/0.12",
+    "purescript-psci-support": "^4.0.0"
   },
   "license": "MIT",
   "repository": {
