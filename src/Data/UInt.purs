@@ -26,6 +26,7 @@ module Data.UInt
      , fromString
      ) where
 
+import Prelude ((<$>))
 import Data.Maybe (Maybe(..))
 import Data.Semiring (class Semiring)
 import Data.Ring (class Ring, negate)
@@ -40,6 +41,8 @@ import Data.Semigroup ((<>))
 import Math as Math
 
 import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
+import Data.Argonaut (class EncodeJson, class DecodeJson, encodeJson, decodeJson)
+import Test.QuickCheck (class Arbitrary, class Coarbitrary, arbitrary, coarbitrary)
 
 
 foreign import data UInt :: Type
@@ -50,6 +53,17 @@ foreign import from :: forall a. a -> UInt
 instance genericUInt :: Generic UInt (Constructor "UInt" (Argument Number)) where
   from x = Constructor (Argument (toNumber x))
   to (Constructor (Argument x)) = fromNumber x
+
+instance encodeJsonUInt :: EncodeJson UInt where
+  encodeJson x = encodeJson (toNumber x)
+instance decodeJsonUInt :: DecodeJson UInt where
+  decodeJson json = fromNumber <$> decodeJson json
+
+instance arbitraryUInt :: Arbitrary UInt where
+  arbitrary = fromNumber <$> arbitrary
+instance coarbitraryUInt :: Coarbitrary UInt where
+  coarbitrary x = coarbitrary (toNumber x)
+
 
 
 -- | Cast an `Int` to an `UInt` turning negative `Int`s into `UInt`s
