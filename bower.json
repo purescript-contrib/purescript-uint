@@ -12,7 +12,8 @@
     "purescript-maybe": "^4.0.0",
     "purescript-math": "^2.1.1",
     "purescript-argonaut": "^5.0.0",
-    "purescript-quickcheck": "^5.0.0"
+    "purescript-quickcheck": "^5.0.0",
+    "purescript-unordered-collections": "^1.6.0"
   },
   "devDependencies": {
     "purescript-quickcheck-laws": "^4.0.0",

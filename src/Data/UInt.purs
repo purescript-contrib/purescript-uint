@@ -42,6 +42,7 @@ import Math as Math
 
 import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
 import Data.Argonaut (class EncodeJson, class DecodeJson, encodeJson, decodeJson)
+import Data.Hashable (class Hashable, hash)
 import Test.QuickCheck (class Arbitrary, class Coarbitrary, arbitrary, coarbitrary)
 
 
@@ -63,6 +64,9 @@ instance arbitraryUInt :: Arbitrary UInt where
   arbitrary = fromNumber <$> arbitrary
 instance coarbitraryUInt :: Coarbitrary UInt where
   coarbitrary x = coarbitrary (toNumber x)
+
+instance hashableUInt :: Hashable UInt where
+  hash x = hash (toNumber x)
 
 
 
