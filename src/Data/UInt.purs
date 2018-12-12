@@ -39,10 +39,18 @@ import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Math as Math
 
+import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
+
+
 foreign import data UInt :: Type
 
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
 foreign import from :: forall a. a -> UInt
+
+instance genericUInt :: Generic UInt (Constructor "UInt" (Argument Number)) where
+  from x = Constructor (Argument (toNumber x))
+  to (Constructor (Argument x)) = fromNumber x
+
 
 -- | Cast an `Int` to an `UInt` turning negative `Int`s into `UInt`s
 -- | in range from `2^31` to `2^32-1`.
