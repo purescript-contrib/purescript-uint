@@ -12,10 +12,11 @@ import Type.Proxy (Proxy(..))
 newtype TestUInt = TestUInt UInt
 
 instance arbitraryTestUInt :: Arbitrary TestUInt where
-  arbitrary = TestUInt <$> genUInt
+  arbitrary = TestUInt <$> genUInt (fromNumber 0.0) (fromNumber 20000.0)
 derive newtype instance boundedTestUInt :: Bounded TestUInt
 derive newtype instance eqTestUInt :: Eq TestUInt
 derive newtype instance ordTestUInt :: Ord TestUInt
+derive newtype instance showTestUInt :: Show TestUInt
 derive newtype instance semiringTestUInt :: Semiring TestUInt
 derive newtype instance ringTestUInt :: Ring TestUInt
 derive newtype instance commutativeRingTestUInt :: CommutativeRing TestUInt

@@ -13,7 +13,7 @@
     "purescript-math": "^2.1.1"
   },
   "devDependencies": {
-    "purescript-quickcheck-laws": "^4.0.0",
+    "purescript-quickcheck-laws": "git://github.com/athanclark/purescript-quickcheck-laws.git#a19fbf646918fa201ddbeafe2653b2c1d83e6dd0",
     "purescript-psci-support": "^4.0.0"
   },
   "license": "MIT",
