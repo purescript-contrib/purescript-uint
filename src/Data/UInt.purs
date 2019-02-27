@@ -37,9 +37,8 @@ import Data.Bounded (class Bounded, top, bottom)
 import Data.Show (class Show)
 import Data.Function ((<<<))
 import Data.Semigroup ((<>))
-import Math as Math
-
 import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
+import Math as Math
 
 
 foreign import data UInt :: Type
