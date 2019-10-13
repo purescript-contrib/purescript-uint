@@ -38,6 +38,8 @@ import Data.Show (class Show)
 import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
+import Test.QuickCheck (class Arbitrary, arbitrary)
+import Prelude ((<$>))
 import Math as Math
 
 
@@ -50,6 +52,8 @@ instance genericUInt :: Generic UInt (Constructor "UInt" (Argument Number)) wher
   from x = Constructor (Argument (toNumber x))
   to (Constructor (Argument x)) = fromNumber x
 
+instance arbitraryUInt :: Arbitrary UInt where
+  arbitrary = fromInt <$> arbitrary
 
 
 -- | Cast an `Int` to an `UInt` turning negative `Int`s into `UInt`s

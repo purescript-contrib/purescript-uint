@@ -11,10 +11,11 @@
   "dependencies": {
     "purescript-maybe": "^4.0.0",
     "purescript-math": "^2.1.1",
-    "purescript-generics-rep": "^6.1.1"
+    "purescript-generics-rep": "^6.1.1",
+    "purescript-quickcheck": "^6.1.0"
   },
   "devDependencies": {
-    "purescript-quickcheck-laws": "git://github.com/athanclark/purescript-quickcheck-laws.git#a19fbf646918fa201ddbeafe2653b2c1d83e6dd0",
+    "purescript-quickcheck-laws": "v5.0.1",
     "purescript-psci-support": "^4.0.0"
   },
   "license": "MIT",
