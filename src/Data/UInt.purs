@@ -38,9 +38,10 @@ import Data.Show (class Show)
 import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
+import Data.Enum (class Enum)
 import Test.QuickCheck (class Arbitrary, arbitrary)
-import Prelude ((<$>))
-import Math as Math
+import Prelude ((<$>), (<), (>), (+), (-))
+import Math (ceil, floor, round) as Math
 
 
 foreign import data UInt :: Type
@@ -55,6 +56,9 @@ instance genericUInt :: Generic UInt (Constructor "UInt" (Argument Number)) wher
 instance arbitraryUInt :: Arbitrary UInt where
   arbitrary = fromInt <$> arbitrary
 
+instance enumUInt :: Enum UInt where
+  succ n = if n < top then Just (n + fromInt 1) else Nothing
+  pred n = if n > bottom then Just (n - fromInt 1) else Nothing
 
 -- | Cast an `Int` to an `UInt` turning negative `Int`s into `UInt`s
 -- | in range from `2^31` to `2^32-1`.
