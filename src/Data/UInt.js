@@ -34,7 +34,7 @@ exports.uintAdd = function (x) {
 
 exports.uintMul = function (x) {
     return function (y) {
-        return (x * y) >>> 0;
+        return Math.imul(x, y) >>> 0;
     };
 };
 

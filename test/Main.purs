@@ -3,8 +3,9 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
-import Data.UInt (UInt, fromNumber)
+import Data.UInt (UInt, fromInt, fromNumber)
 import Data.UInt.Gen (genUInt)
+import Test.QuickCheck (quickCheck, (===))
 import Test.QuickCheck.Arbitrary (class Arbitrary)
 import Test.QuickCheck.Laws.Data as Data
 import Type.Proxy (Proxy(..))
@@ -22,7 +23,6 @@ derive newtype instance ringTestUInt :: Ring TestUInt
 derive newtype instance commutativeRingTestUInt :: CommutativeRing TestUInt
 derive newtype instance euclideanRingTestUInt :: EuclideanRing TestUInt
 
-
 main :: Effect Unit
 main = do
   let prxUInt = Proxy ∷ Proxy TestUInt
@@ -33,3 +33,11 @@ main = do
   Data.checkEuclideanRing prxUInt
   Data.checkBounded prxUInt
   Data.checkCommutativeRing prxUInt
+  mulRegression1
+
+mulRegression1 :: Effect Unit
+mulRegression1 = do
+  let lhs = fromInt (-2047875787)
+      rhs = fromInt (-1028477387)
+      expected = fromInt 1364097529
+  quickCheck $ lhs * rhs === expected
