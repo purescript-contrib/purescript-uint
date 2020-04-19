@@ -3,7 +3,7 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
-import Data.UInt (UInt, fromInt, fromNumber)
+import Data.UInt (UInt, and, fromInt, fromNumber)
 import Data.UInt.Gen (genUInt)
 import Test.QuickCheck (quickCheck, (===))
 import Test.QuickCheck.Arbitrary (class Arbitrary)
@@ -33,7 +33,14 @@ main = do
   Data.checkEuclideanRing prxUInt
   Data.checkBounded prxUInt
   Data.checkCommutativeRing prxUInt
+  checkMulIsPrecise
   mulRegression1
+
+checkMulIsPrecise :: Effect Unit
+checkMulIsPrecise = do
+  let onlyLowBits = and (fromInt 0x1)
+  quickCheck \lhs rhs ->
+    onlyLowBits (lhs * rhs) === onlyLowBits lhs * onlyLowBits rhs
 
 mulRegression1 :: Effect Unit
 mulRegression1 = do
