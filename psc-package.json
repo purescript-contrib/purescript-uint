@@ -1,0 +1,16 @@
+{
+  "name": "purescript-uint",
+  "set": "psc-0.13.6-20200404",
+  "source": "https://github.com/purescript/package-sets.git",
+  "depends": [
+    "prelude",
+    "console",
+    "effect",
+    "generics-rep",
+    "math",
+    "maybe",
+    "psci-support",
+    "quickcheck",
+    "quickcheck-laws"
+  ]
+}
