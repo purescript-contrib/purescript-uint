@@ -1,26 +1,26 @@
 {
-  "name": "purescript-uint",
-  "homepage": "https://github.com/zaquest/purescript-uint",
-  "description": "32-bit unsigned integers for PureScript",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "output"
-  ],
-  "dependencies": {
-    "purescript-maybe": "^4.0.0",
-    "purescript-math": "^2.1.1",
-    "purescript-generics-rep": "^6.1.1",
-    "purescript-quickcheck": "^6.1.0"
-  },
-  "devDependencies": {
-    "purescript-quickcheck-laws": "v5.0.1",
-    "purescript-psci-support": "^4.0.0"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/zaquest/purescript-uint.git"
-  }
+    "name": "purescript-uint",
+    "license": [
+        "MIT"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zaquest/purescript-uint.git"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "output"
+    ],
+    "dependencies": {
+        "purescript-console": "^v4.4.0",
+        "purescript-effect": "^v2.0.1",
+        "purescript-generics-rep": "^v6.1.1",
+        "purescript-math": "^v2.1.1",
+        "purescript-maybe": "^v4.0.1",
+        "purescript-psci-support": "^v4.0.0",
+        "purescript-quickcheck": "^v6.1.0",
+        "purescript-quickcheck-laws": "^v5.1.0"
+    }
 }
