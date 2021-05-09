@@ -14,13 +14,14 @@
         "output"
     ],
     "dependencies": {
-        "purescript-console": "^v4.4.0",
-        "purescript-effect": "^v2.0.1",
-        "purescript-generics-rep": "^v6.1.1",
-        "purescript-math": "^v2.1.1",
-        "purescript-maybe": "^v4.0.1",
-        "purescript-psci-support": "^v4.0.0",
-        "purescript-quickcheck": "^v6.1.0",
-        "purescript-quickcheck-laws": "^v5.1.0"
+        "purescript-effect": "^v3.0.0",
+        "purescript-enums": "^v5.0.0",
+        "purescript-gen": "^v3.0.0",
+        "purescript-math": "^v3.0.0",
+        "purescript-maybe": "^v5.0.0",
+        "purescript-prelude": "^v5.0.0",
+        "purescript-psci-support": "^v5.0.0",
+        "purescript-quickcheck": "^v7.1.0",
+        "purescript-quickcheck-laws": "^v6.0.1"
     }
 }
