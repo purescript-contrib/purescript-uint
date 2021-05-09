@@ -4,14 +4,15 @@ You can edit this file as you like.
 -}
 { name = "uint"
 , dependencies =
-  [ "console"
+  [ "prelude"
   , "effect"
-  , "generics-rep"
   , "math"
   , "maybe"
   , "psci-support"
   , "quickcheck"
   , "quickcheck-laws"
+  , "enums"
+  , "gen"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]

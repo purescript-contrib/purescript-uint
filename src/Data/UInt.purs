@@ -3,7 +3,7 @@
 -- | is based on `x | 0` trick.
 -- | The type has range from `0` to `4294967295`.
 module Data.UInt
-     ( UInt
+     ( UInt(..)
      , fromInt
      , fromInt'
      , toInt
@@ -14,6 +14,8 @@ module Data.UInt
      , floor
      , ceil
      , round
+     , even
+     , odd
      , pow
      , and, (.&.)
      , or, (.|.)
