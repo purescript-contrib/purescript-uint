@@ -17,5 +17,5 @@ You can edit this file as you like.
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 , license = "MIT"
-, repository = "https://github.com/zaquest/purescript-uint.git"
+, repository = "https://github.com/purescript-contrib/purescript-uint.git"
 }

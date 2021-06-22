@@ -1,7 +1,3 @@
--- | This module provides 32-bit unsigned integers. Provided type `UInt`
--- | is based on the `x >>> 0` trick analogous to how PureScript's `Int`
--- | is based on `x | 0` trick.
--- | The type has range from `0` to `4294967295`.
 module Data.UInt
      ( UInt(..)
      , fromInt
@@ -46,6 +42,7 @@ import Prelude ((<$>), (<), (>), (+), (-))
 import Math (ceil, floor, round) as Math
 
 
+-- | 32-bit unsigned integer. Range from *0* to *4294967295*.
 foreign import data UInt :: Type
 
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
@@ -94,7 +91,7 @@ fromInt' = exact Just Nothing fromInt
 -- |     -1
 foreign import toInt :: UInt -> Int
 
--- | Converts `UInt`s in range from `0` to `2^31-1` into `Int`s. Rreturns
+-- | Converts `UInt`s in range from `0` to `2^31-1` into `Int`s. Returns
 -- | `Nothing` for `UInt`'s in range from `2^31` to `2^32-1`.
 -- |
 -- |     > toInt' (fromInt 123)
