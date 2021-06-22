@@ -10,6 +10,12 @@ Repository transferred to __purescript-contrib__.
 
 Thank you @zaquest for authoring and donating this package.
 
+Change the definition of `UInt` from `foreign import data UInt :: Type`
+to `newtype UInt = UInt Number` and
+remove the `instance Generic UInt`. We don't expect this will break
+any dependent code. The `Generic` instance is no longer needed for making
+class instances for types which use `UInt`.
+
 ## v6.0.0 2021-05-20
 
 PureScript v0.14.x update.
