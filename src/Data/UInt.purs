@@ -1,5 +1,5 @@
 module Data.UInt
-     ( UInt(..)
+     ( UInt
      , fromInt
      , fromInt'
      , toInt
@@ -35,7 +35,6 @@ import Data.Bounded (class Bounded, top, bottom)
 import Data.Show (class Show)
 import Data.Function ((<<<))
 import Data.Semigroup ((<>))
-import Data.Generic.Rep (class Generic, Constructor (..), Argument (..))
 import Data.Enum (class Enum)
 import Test.QuickCheck (class Arbitrary, arbitrary)
 import Prelude ((<$>), (<), (>), (+), (-))
@@ -43,14 +42,10 @@ import Math (ceil, floor, round) as Math
 
 
 -- | 32-bit unsigned integer. Range from *0* to *4294967295*.
-foreign import data UInt :: Type
+newtype UInt = UInt Number
 
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
 foreign import from :: forall a. a -> UInt
-
-instance genericUInt :: Generic UInt (Constructor "UInt" (Argument Number)) where
-  from x = Constructor (Argument (toNumber x))
-  to (Constructor (Argument x)) = fromNumber x
 
 instance arbitraryUInt :: Arbitrary UInt where
   arbitrary = fromInt <$> arbitrary
