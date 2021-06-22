@@ -1,8 +1,8 @@
-/bower_components/
-/node_modules/
-/.pulp-cache/
-/output/
-/.psc*
-/src/.webpack.js
-/.psc-package/
-/.spago/
+.*
+!.gitignore
+!.github
+!.editorconfig
+
+output
+generated-docs
+bower_components
