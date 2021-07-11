@@ -3,6 +3,7 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
+import Data.Newtype (class Newtype, over)
 import Data.UInt (UInt, and, fromInt, fromNumber)
 import Data.UInt.Gen (genUInt)
 import Test.QuickCheck (quickCheck, (===))
@@ -12,8 +13,9 @@ import Type.Proxy (Proxy(..))
 
 newtype TestUInt = TestUInt UInt
 
+instance newtypeTestUInt :: Newtype TestUInt UInt
 instance arbitraryTestUInt :: Arbitrary TestUInt where
-  arbitrary = TestUInt <$> genUInt (fromNumber 0.0) (fromNumber 20000.0)
+  arbitrary = TestUInt <$> genUInt bottom (fromNumber 20000.0)
 derive newtype instance boundedTestUInt :: Bounded TestUInt
 derive newtype instance eqTestUInt :: Eq TestUInt
 derive newtype instance ordTestUInt :: Ord TestUInt
@@ -38,7 +40,8 @@ main = do
 
 checkMulIsPrecise :: Effect Unit
 checkMulIsPrecise = do
-  let onlyLowBits = and (fromInt 0x1)
+  let onlyLowBits :: TestUInt -> TestUInt
+      onlyLowBits = over TestUInt $ and $ fromInt 0x1
   quickCheck \lhs rhs ->
     onlyLowBits (lhs * rhs) === onlyLowBits lhs * onlyLowBits rhs
 

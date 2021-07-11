@@ -4,12 +4,9 @@
   "source": "https://github.com/purescript/package-sets.git",
   "depends": [
     "prelude",
-    "effect",
     "math",
     "maybe",
     "psci-support",
-    "quickcheck",
-    "quickcheck-laws",
     "enums",
     "gen"
   ]

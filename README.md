@@ -44,3 +44,11 @@ You can contribute to `uint` in several ways:
 2. If you would like to contribute code, tests, or documentation, please [read the contributor guide](./CONTRIBUTING.md). It's a short, helpful introduction to contributing to this library, including development instructions.
 
 3. If you have written a library, tutorial, guide, or other resource based on this package, please share it on the [PureScript Discourse](https://discourse.purescript.org)! Writing libraries and learning resources are a great way to help this library succeed.
+
+## Development
+
+Run the tests with
+
+```sh
+spago -x test.dhall test
+```

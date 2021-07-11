@@ -14,13 +14,15 @@
         "output"
     ],
     "dependencies": {
-        "purescript-effect": "^v3.0.0",
         "purescript-enums": "^v5.0.0",
         "purescript-gen": "^v3.0.0",
         "purescript-math": "^v3.0.0",
         "purescript-maybe": "^v5.0.0",
         "purescript-prelude": "^v5.0.0",
         "purescript-psci-support": "^v5.0.0",
+    }
+    "devDependencies": {
+        "purescript-effect": "^v3.0.0",
         "purescript-quickcheck": "^v7.1.0",
         "purescript-quickcheck-laws": "^v6.0.1"
     }

@@ -36,8 +36,7 @@ import Data.Show (class Show)
 import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Data.Enum (class Enum)
-import Test.QuickCheck (class Arbitrary, arbitrary)
-import Prelude ((<$>), (<), (>), (+), (-))
+import Prelude ((<), (>), (+), (-))
 import Math (ceil, floor, round) as Math
 
 
@@ -46,9 +45,6 @@ newtype UInt = UInt Number
 
 foreign import exact :: forall a b. (b -> Maybe b) -> Maybe b -> (a -> b) -> a -> Maybe b
 foreign import from :: forall a. a -> UInt
-
-instance arbitraryUInt :: Arbitrary UInt where
-  arbitrary = fromInt <$> arbitrary
 
 instance enumUInt :: Enum UInt where
   succ n = if n < top then Just (n + fromInt 1) else Nothing
