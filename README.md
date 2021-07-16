@@ -3,6 +3,7 @@
 [![CI](https://github.com/purescript-contrib/purescript-uint/workflows/CI/badge.svg?branch=main)](https://github.com/purescript-contrib/purescript-uint/actions?query=workflow%3ACI+branch%3Amain)
 [![Release](https://img.shields.io/github/release/purescript-contrib/purescript-uint.svg)](https://github.com/purescript-contrib/purescript-uint/releases)
 [![Pursuit](https://pursuit.purescript.org/packages/purescript-uint/badge)](https://pursuit.purescript.org/packages/purescript-uint)
+[![Maintainer: zaquest](https://img.shields.io/badge/maintainer-zaquest-teal.svg)](https://github.com/zaquest)
 [![Maintainer: jamesdbrock](https://img.shields.io/badge/maintainer-jamesdbrock-teal.svg)](https://github.com/jamesdbrock)
 
 Provides the 32-bit unsigned integer type `UInt`, and operations.
