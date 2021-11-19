@@ -16,6 +16,7 @@ newtype TestUInt = TestUInt UInt
 instance newtypeTestUInt :: Newtype TestUInt UInt
 instance arbitraryTestUInt :: Arbitrary TestUInt where
   arbitrary = TestUInt <$> genUInt bottom (fromNumber 20000.0)
+
 derive newtype instance boundedTestUInt :: Bounded TestUInt
 derive newtype instance eqTestUInt :: Eq TestUInt
 derive newtype instance ordTestUInt :: Ord TestUInt
@@ -27,7 +28,7 @@ derive newtype instance euclideanRingTestUInt :: EuclideanRing TestUInt
 
 main :: Effect Unit
 main = do
-  let prxUInt = Proxy ∷ Proxy TestUInt
+  let prxUInt = Proxy :: Proxy TestUInt
   Data.checkEq prxUInt
   Data.checkOrd prxUInt
   Data.checkSemiring prxUInt
@@ -40,14 +41,16 @@ main = do
 
 checkMulIsPrecise :: Effect Unit
 checkMulIsPrecise = do
-  let onlyLowBits :: TestUInt -> TestUInt
-      onlyLowBits = over TestUInt $ and $ fromInt 0x1
+  let
+    onlyLowBits :: TestUInt -> TestUInt
+    onlyLowBits = over TestUInt $ and $ fromInt 0x1
   quickCheck \lhs rhs ->
     onlyLowBits (lhs * rhs) === onlyLowBits lhs * onlyLowBits rhs
 
 mulRegression1 :: Effect Unit
 mulRegression1 = do
-  let lhs = fromInt (-2047875787)
-      rhs = fromInt (-1028477387)
-      expected = fromInt 1364097529
+  let
+    lhs = fromInt (-2047875787)
+    rhs = fromInt (-1028477387)
+    expected = fromInt 1364097529
   quickCheck $ lhs * rhs === expected

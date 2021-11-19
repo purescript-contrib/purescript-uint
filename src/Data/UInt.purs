@@ -1,28 +1,31 @@
 module Data.UInt
-     ( UInt
-     , fromInt
-     , fromInt'
-     , toInt
-     , toInt'
-     , fromNumber
-     , fromNumber'
-     , toNumber
-     , floor
-     , ceil
-     , round
-     , even
-     , odd
-     , pow
-     , and, (.&.)
-     , or, (.|.)
-     , xor, (.^.)
-     , shl
-     , shr
-     , zshr
-     , complement
-     , toString
-     , fromString
-     ) where
+  ( UInt
+  , fromInt
+  , fromInt'
+  , toInt
+  , toInt'
+  , fromNumber
+  , fromNumber'
+  , toNumber
+  , floor
+  , ceil
+  , round
+  , even
+  , odd
+  , pow
+  , and
+  , (.&.)
+  , or
+  , (.|.)
+  , xor
+  , (.^.)
+  , shl
+  , shr
+  , zshr
+  , complement
+  , toString
+  , fromString
+  ) where
 
 import Data.Maybe (Maybe(..))
 import Data.Semiring (class Semiring)
@@ -38,7 +41,6 @@ import Data.Semigroup ((<>))
 import Data.Enum (class Enum)
 import Prelude ((<), (>), (+), (-))
 import Math (ceil, floor, round) as Math
-
 
 -- | 32-bit unsigned integer. Range from *0* to *4294967295*.
 newtype UInt = UInt Number
