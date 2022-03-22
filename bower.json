@@ -18,11 +18,11 @@
     "purescript-gen": "master",
     "purescript-math": "master",
     "purescript-maybe": "master",
-    "purescript-prelude": "master",
-    "purescript-psci-support": "master"
+    "purescript-prelude": "master"
   },
   "devDependencies": {
     "purescript-effect": "master",
+    "purescript-psci-support": "master",
     "purescript-quickcheck": "master",
     "purescript-quickcheck-laws": "main"
   }
