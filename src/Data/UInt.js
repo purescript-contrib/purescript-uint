@@ -1,5 +1,3 @@
-"use strict";
-
 export function from(val) {
     return val >>> 0;
 }
