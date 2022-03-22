@@ -3,7 +3,6 @@
   [ "prelude"
   , "math"
   , "maybe"
-  , "psci-support"
   , "enums"
   , "gen"
   ]
