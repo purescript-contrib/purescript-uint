@@ -1,10 +1,8 @@
-"use strict";
-
-exports.from = function (val) {
+export function from(val) {
     return val >>> 0;
-};
+}
 
-exports.exact = function (just) {
+export function exact(just) {
     return function (nothing) {
         return function (conv) {
             return function (val) {
@@ -16,57 +14,57 @@ exports.exact = function (just) {
             };
         };
     };
-};
+}
 
-exports.toInt = function (uval) {
+export function toInt(uval) {
     return uval | 0;
-};
+}
 
-exports.toNumber = function (uval) {
+export function toNumber(uval) {
     return uval;
-};
+}
 
-exports.uintAdd = function (x) {
+export function uintAdd(x) {
     return function (y) {
         return (x + y) >>> 0;
     };
-};
+}
 
-exports.uintMul = function (x) {
+export function uintMul(x) {
     return function (y) {
         return Math.imul(x, y) >>> 0;
     };
-};
+}
 
-exports.uintSub = function (x) {
+export function uintSub(x) {
     return function (y) {
         return (x - y) >>> 0;
     };
-};
+}
 
-exports.uintDiv = function (x) {
+export function uintDiv(x) {
     return function (y) {
         return (x / y) >>> 0;
     };
-};
+}
 
-exports.uintMod = function (x) {
+export function uintMod(x) {
     return function (y) {
         return (x % y) >>> 0;
     };
-};
+}
 
-exports.uintDegree = function (x) {
+export function uintDegree(x) {
     return Math.abs(x | 0);
-};
+}
 
-exports.uintEq = function (x) {
+export function uintEq(x) {
     return function (y) {
         return x == y;
     };
-};
+}
 
-exports.uintCmp = function (lt) {
+export function uintCmp(lt) {
     return function (eq) {
         return function (gt) {
             return function (x) {
@@ -78,62 +76,62 @@ exports.uintCmp = function (lt) {
             };
         };
     };
-};
+}
 
-exports.fromStringImpl = function (s) {
+export function fromStringImpl(s) {
     var n = Number(s);
     if (n === parseInt(s)) {
         return n;
     }
     return NaN;
-};
+}
 
-exports.toString = function (x) {
+export function toString(x) {
     return x.toString();
-};
+}
 
-exports.pow = function (u) {
+export function pow(u) {
     return function (p) {
         return Math.pow(u, p) >>> 0;
     };
-};
+}
 
-exports.and = function (n1) {
+export function and(n1) {
     return function (n2) {
         return (n1 & n2) >>> 0;
     };
-};
+}
 
-exports.or = function (n1) {
+export function or(n1) {
     return function (n2) {
         return (n1 | n2) >>> 0;
     };
-};
+}
 
-exports.xor = function (n1) {
+export function xor(n1) {
     return function (n2) {
         return (n1 ^ n2) >>> 0;
     };
-};
+}
 
-exports.shl = function (n1) {
+export function shl(n1) {
     return function (n2) {
         return (n1 << n2) >>> 0;
     };
-};
+}
 
-exports.shr = function (n1) {
+export function shr(n1) {
     return function (n2) {
         return (n1 >> n2) >>> 0;
     };
-};
+}
 
-exports.zshr = function (n1) {
+export function zshr(n1) {
     return function (n2) {
         return (n1 >>> n2) >>> 0;
     };
-};
+}
 
-exports.complement = function (n) {
+export function complement(n) {
     return (~n >>> 0);
-};
+}
