@@ -40,7 +40,7 @@ import Data.Function ((<<<))
 import Data.Semigroup ((<>))
 import Data.Enum (class Enum)
 import Prelude ((<), (>), (+), (-))
-import Math (ceil, floor, round) as Math
+import Data.Number (ceil, floor, round) as Number
 
 -- | 32-bit unsigned integer. Range from *0* to *4294967295*.
 newtype UInt = UInt Number
@@ -186,7 +186,7 @@ clamp' = clamp (toNumber bottom) (toNumber top)
 -- |     > floor (-1.0e65)
 -- |     0u
 floor :: Number -> UInt
-floor = fromNumber <<< Math.floor <<< clamp'
+floor = fromNumber <<< Number.floor <<< clamp'
 
 -- | Convert a `Number` to an `UInt`. Takes the closest integer equal to or
 -- | greater than the argument. Values outside the `UInt` range are clamped.
@@ -206,7 +206,7 @@ floor = fromNumber <<< Math.floor <<< clamp'
 -- |     > ceil (-1.0e65)
 -- |     0u
 ceil :: Number -> UInt
-ceil = fromNumber <<< Math.ceil <<< clamp'
+ceil = fromNumber <<< Number.ceil <<< clamp'
 
 -- | Convert a `Number` to an `UInt`, by taking the nearest integer to the
 -- | argument. Values outside the `UInt` range are clamped.
@@ -229,7 +229,7 @@ ceil = fromNumber <<< Math.ceil <<< clamp'
 -- |     > round (-1.0e65)
 -- |     0u
 round :: Number -> UInt
-round = fromNumber <<< Math.round <<< clamp'
+round = fromNumber <<< Number.round <<< clamp'
 
 -- | Returns whether an `Int53` is an even number.
 -- |

@@ -16,7 +16,7 @@
   "dependencies": {
     "purescript-enums": "master",
     "purescript-gen": "master",
-    "purescript-math": "master",
+    "purescript-numbers": "master",
     "purescript-maybe": "master",
     "purescript-prelude": "master"
   },

@@ -1,8 +1,8 @@
 { name = "uint"
 , dependencies =
   [ "prelude"
-  , "math"
   , "maybe"
+  , "numbers"
   , "enums"
   , "gen"
   ]
