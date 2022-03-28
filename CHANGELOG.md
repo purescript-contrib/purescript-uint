@@ -8,6 +8,9 @@ Notable changes to this project are documented in this file. The format is based
 Breaking Changes:
 - Migrate FFI to ES modules (#20 by @JordanMartinez)
 
+Other improvements:
+- Drop `math` dependency; update imports (#21 by @JordanMartinez)
+
 ## v6.0.2 2021-07-11
 
 Move quickcheck test dependencies to `test.dhall`.
