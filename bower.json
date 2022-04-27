@@ -14,16 +14,16 @@
     "output"
   ],
   "dependencies": {
-    "purescript-enums": "master",
-    "purescript-gen": "master",
-    "purescript-numbers": "master",
-    "purescript-maybe": "master",
-    "purescript-prelude": "master"
+    "purescript-enums": "^6.0.0",
+    "purescript-gen": "^4.0.0",
+    "purescript-numbers": "^9.0.0",
+    "purescript-maybe": "^6.0.0",
+    "purescript-prelude": "^6.0.0"
   },
   "devDependencies": {
-    "purescript-effect": "master",
-    "purescript-psci-support": "master",
-    "purescript-quickcheck": "master",
-    "purescript-quickcheck-laws": "main"
+    "purescript-effect": "^4.0.0",
+    "purescript-psci-support": "^6.0.0",
+    "purescript-quickcheck": "^8.0.1",
+    "purescript-quickcheck-laws": "^7.0.0"
   }
 }
