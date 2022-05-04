@@ -231,7 +231,7 @@ ceil = fromNumber <<< Number.ceil <<< clamp'
 round :: Number -> UInt
 round = fromNumber <<< Number.round <<< clamp'
 
--- | Returns whether an `Int53` is an even number.
+-- | Returns true if the `UInt` is an even number.
 -- |
 -- |     > even (fromInt 0)
 -- |     true
@@ -241,7 +241,7 @@ round = fromNumber <<< Number.round <<< clamp'
 even :: UInt -> Boolean
 even u = u `mod` (fromInt 2) == (fromInt 0)
 
--- | Returns whether an `Int53` is an odd number.
+-- | Returns true if the `UInt` is an odd number.
 -- |
 -- |     > odd (fromInt 0)
 -- |     false
