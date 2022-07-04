@@ -1,4 +1,5 @@
 let upstream =
-      https://raw.githubusercontent.com/purescript/package-sets/prepare-0.15/src/packages.dhall
+      https://github.com/purescript/package-sets/releases/download/psc-0.15.2-20220621/packages.dhall
 
 in  upstream
+
