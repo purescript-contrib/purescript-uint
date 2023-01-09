@@ -1,6 +1,10 @@
 package:
   name: "uint"
+  version: 7.0.0
   dependencies: [ "prelude", "maybe", "numbers", "enums", "gen" ]
   publish:
     license: "MIT"
     location: "https://github.com/purescript-contrib/purescript-uint.git"
+workspace:
+  set:
+    registry: 8.6.0
