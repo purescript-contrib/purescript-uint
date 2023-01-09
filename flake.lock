@@ -32,11 +32,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1671995294,
-        "narHash": "sha256-KDeHKinlHWSLZX1JEh3FFwHZ3RXx/Jak/QcUNC00BNo=",
+        "lastModified": 1638854732,
+        "narHash": "sha256-a6iFNaiV1EDlBdFCsjzv4M1lVptPr5mNZMa0/tUINYA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "83d9cef1044cbccc2237d94b018fb0a2e25e97c4",
+        "rev": "bcfed07a3d30470143a2cae4c55ab952495ffe2f",
         "type": "github"
       },
       "original": {
@@ -48,11 +48,11 @@
     "purescript-registry": {
       "flake": false,
       "locked": {
-        "lastModified": 1672067897,
-        "narHash": "sha256-9MtdAoPvUIRsMyY3nnVyFtjUwjGyan0ELFRR1BVV9tE=",
+        "lastModified": 1673124924,
+        "narHash": "sha256-pOL87XY/8Yz+lM/w+JKoC7q1SzMANDYVn+TPOMpMEqI=",
         "owner": "purescript",
         "repo": "registry",
-        "rev": "a83eadc5d79ac6ca728a66cfe093fa9bfc5ca91e",
+        "rev": "b22750980d7f01db620e98b946c4f8e54c67cb4c",
         "type": "github"
       },
       "original": {
@@ -64,11 +64,11 @@
     "purescript-registry-index": {
       "flake": false,
       "locked": {
-        "lastModified": 1672067900,
-        "narHash": "sha256-oZUfucrvUPCNd8aOWdRLgm3ldsnwyjCw5KO6jRpVK1U=",
+        "lastModified": 1673124925,
+        "narHash": "sha256-spndyImhGxbf3st6BVCpySo3Z8tYkuvkEGc9ojfcUaU=",
         "owner": "purescript",
         "repo": "registry-index",
-        "rev": "53da963f7b1ccb8cbd79c2944767efda8c3c664d",
+        "rev": "ed418b7fb2f7ab0828f2c9d27d8a1f1c8084fcf7",
         "type": "github"
       },
       "original": {
@@ -84,16 +84,15 @@
         "purescript-registry-index": "purescript-registry-index"
       },
       "locked": {
-        "lastModified": 1673245600,
-        "narHash": "sha256-SlN9R1KDBBZphQznrNVGzVtOeFvIV8uK8the4IFSEBk=",
-        "owner": "considerate",
+        "lastModified": 1673275695,
+        "narHash": "sha256-+HxAn/CEZEatm+bGyP7Ih2waefxX6kCgz4YusoZdddw=",
+        "owner": "cdepillabout",
         "repo": "purescript2nix",
-        "rev": "e121aa54c7d2288265526bab719726f0d01d932c",
+        "rev": "91873f7dfd40bc1f36eb463d15eac7994da7b625",
         "type": "github"
       },
       "original": {
-        "owner": "considerate",
-        "ref": "considerate/registry",
+        "owner": "cdepillabout",
         "repo": "purescript2nix",
         "type": "github"
       }

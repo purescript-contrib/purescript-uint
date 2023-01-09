@@ -4,7 +4,7 @@
       url = "github:NixOS/nixpkgs";
     };
     purescript2nix = {
-      url = "github:considerate/purescript2nix/considerate/registry";
+      url = "github:cdepillabout/purescript2nix";
     };
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -17,7 +17,7 @@
           inherit system;
           overlays = [ inputs.purescript2nix.overlay ];
         };
-        uint = pkgs.purescript2nix {
+        uint = pkgs.purescript2nix.build {
           src = ./.;
         };
       in
