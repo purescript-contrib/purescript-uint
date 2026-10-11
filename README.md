@@ -51,5 +51,5 @@ You can contribute to `uint` in several ways:
 Run the tests with
 
 ```sh
-spago -x test.dhall test
+spago test
 ```
